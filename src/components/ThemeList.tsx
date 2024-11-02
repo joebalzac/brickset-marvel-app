@@ -23,7 +23,6 @@ const ThemeList = ({ onSelectTheme, selectedTheme }: Props) => {
     return <div>Error loading themes: {error}</div>;
   }
 
-  // Ensure a default value to avoid uncontrolled/controlled warning
   const initialSelectedTheme = selectedTheme || themes?.[0] || null;
 
   return (
