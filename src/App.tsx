@@ -7,6 +7,7 @@ import ThemeList from "./components/ThemeList";
 function App() {
   const { sets, error, isLoading } = useSets();
   const { themes } = useThemes();
+  console.log("Themes:", themes);
 
   useEffect(() => {
     console.log("Sets:", sets, "isLoading:", isLoading);

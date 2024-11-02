@@ -1,8 +1,7 @@
 import useData from "./useData";
 
 export interface Themes {
-  themeId: number;
-  name: string;
+  theme: string;
 }
 
 interface UseThemesResult {
@@ -24,7 +23,9 @@ const useThemes = (
     theme: theme || undefined,
   });
 
-  const { data, error, isLoading } = useData<Themes>("/getThemes", {
+  const { data, error, isLoading } = useData<{
+    themes: Themes[];
+  }>("/getThemes", {
     params: {
       userHash: "",
       params: apiParams,
@@ -32,7 +33,7 @@ const useThemes = (
   });
 
   return {
-    themes: data,
+    themes: Array.isArray(data) ? data.flatMap((d) => d.themes) : data?.themes,
     error,
     isLoading,
   };

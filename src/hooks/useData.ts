@@ -15,7 +15,7 @@ const useData = <T>(
   requestConfig: AxiosRequestConfig,
   deps?: any[]
 ) => {
-  const [data, setData] = useState<T[]>([]);
+  const [data, setData] = useState<T | T[] | null>(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -30,7 +30,7 @@ const useData = <T>(
           ...requestConfig,
         })
         .then((res) => {
-          setData(res.data.sets || res.data.results);
+          setData(res.data.sets || res.data.results || (res.data as T));
           console.log("Full response:", res);
           console.log("Response data:", res.data);
 

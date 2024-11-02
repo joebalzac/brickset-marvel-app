@@ -37,7 +37,7 @@ const useSets = (
   });
 
   return {
-    sets: data,
+    sets: Array.isArray(data) ? data : data ? [data] : undefined,
     error,
     isLoading,
   };
