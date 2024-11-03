@@ -23,14 +23,16 @@ const ThemeList = ({ onSelectTheme, selectedTheme }: Props) => {
     return <div>Error loading themes: {error}</div>;
   }
 
-  const initialSelectedTheme = selectedTheme || themes?.[0] || null;
+  const marvelThemes = themes?.filter(
+    (theme) => theme.theme === "Marvel Super Heroes"
+  );
 
   return (
     <div>
-      <Listbox value={initialSelectedTheme} onChange={onSelectTheme}>
+      <Listbox value={selectedTheme} onChange={onSelectTheme}>
         <ListboxButton>Choose a theme</ListboxButton>
         <ListboxOptions key="all">
-          {themes?.map((theme) => (
+          {marvelThemes?.map((theme) => (
             <ListboxOption value={theme}>{theme.theme}</ListboxOption>
           ))}
         </ListboxOptions>

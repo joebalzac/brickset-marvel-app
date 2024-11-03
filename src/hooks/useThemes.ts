@@ -14,9 +14,9 @@ const useThemes = (
   params: {
     query?: string;
     theme?: string;
-  } = {}
+  } = { theme: "Marvel Super Heroes" }
 ): UseThemesResult => {
-  const { query = "", theme = "" } = params;
+  const { query = "", theme = "Marvel Super Heroes" } = params;
 
   const apiParams = JSON.stringify({
     query: query || undefined,

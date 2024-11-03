@@ -3,11 +3,13 @@ import "./App.css";
 import useSets from "./hooks/useSets";
 import useThemes from "./hooks/useThemes";
 import ThemeList from "./components/ThemeList";
+import SetGrid from "./components/SetGrid";
 
 function App() {
-  const { sets, error, isLoading } = useSets();
+  const { sets, error, isLoading } = useSets({ theme: "Marvel Super Heroes" });
   const { themes } = useThemes();
   console.log("Themes:", themes);
+  console.log("Sets:", sets);
 
   useEffect(() => {
     console.log("Sets:", sets, "isLoading:", isLoading);
@@ -18,21 +20,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="text-5xl">HELLO THIS IS WORKING</h1>
-      {isLoading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
-      {sets && sets.length === 0 && <p>No sets found.</p>}
-      {sets && sets.length > 0 && (
-        <ul>
-          {sets.map((set) => (
-            <li key={set.setId}>{set.name}</li>
-          ))}
-        </ul>
-      )}
       <ThemeList
         onSelectTheme={() => {}}
         selectedTheme={themes ? themes[0] : null}
       />
+      <SetGrid sets={sets} error={error} isLoading={isLoading} />
     </div>
   );
 }

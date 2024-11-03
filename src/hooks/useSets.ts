@@ -6,7 +6,7 @@ export interface Sets {
   numberVariant: number;
   theme: string;
   subtheme: string;
-  image: string;
+  image: { imageUrl: string; thumbnailUrl: string };
   pieces: number;
 }
 
