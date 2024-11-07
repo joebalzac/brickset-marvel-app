@@ -5,6 +5,15 @@
   text-align: center;
 }
 
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: white;
+}
+
 .logo {
   height: 6em;
   padding: 1.5em;

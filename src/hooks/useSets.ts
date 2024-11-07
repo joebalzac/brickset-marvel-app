@@ -6,7 +6,7 @@ export interface Sets {
   numberVariant: number;
   theme: string;
   subtheme: string;
-  image: { imageUrl: string; thumbnailUrl: string };
+  image: { imageUrl: string; thumbnailURL: string };
   pieces: number;
 }
 
@@ -44,3 +44,4 @@ const useSets = (
 };
 
 export default useSets;
+ 
